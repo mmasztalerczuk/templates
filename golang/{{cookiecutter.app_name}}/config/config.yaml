@@ -1,0 +1,9 @@
+server:
+  listen: 0.0.0.0:4201
+
+database:
+  host: localhost
+  port: 5432
+  user: test
+  password: test
+  name: test
