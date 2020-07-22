@@ -76,6 +76,14 @@ def remove_circleci_files():
         PROJECT_DIRECTORY, ".circleci"
     ))
 
+def remove_database():
+    """
+    Removes files needed for viper config utils
+    """
+    shutil.rmtree(os.path.join(
+        PROJECT_DIRECTORY, "database"
+    ))
+
 # 1. Remove Dockerfiles if docker is not going to be used
 if '{{ cookiecutter.use_docker }}'.lower() != 'y':
     remove_docker_files()
@@ -113,7 +121,10 @@ if '{{ cookiecutter.use_git }}'.lower() == 'y':
 else:
     remove_file(".gitignore")
 
-
-# 8. Remove mux depending on selection of mod or dep
-if '{{ cookiecutter.use_mux}}'.lower() == 'y':
+# 8. Remove mux depending on selection
+if '{{ cookiecutter.use_mux}}'.lower() == 'n':
     remove_file("cmd/run.go")
+
+# 9. Remove postgres depending on selection of 
+if '{{ cookiecutter.use_postgresql}}'.lower() == 'n':
+    remove_database() 

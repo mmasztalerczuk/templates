@@ -2,7 +2,6 @@ package config
 
 import (
 	"time"
-	"log"
 	"github.com/spf13/viper"
 )
 
@@ -56,12 +55,9 @@ func readViperConfig(appName string) *viper.Viper {
 
 	v.SetConfigType("yaml")
 	v.SetConfigName("config")
-	v.AddConfigPath("config/")
+	//v.AddConfigPath("config/")
 
-	err := v.ReadInConfig()
-	if err != nil {
-		log.Fatal("error on parsing configuration file", err)
-	}
+	v.ReadInConfig()
 
 	return v
 }

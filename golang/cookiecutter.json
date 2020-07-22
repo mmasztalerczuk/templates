@@ -10,6 +10,7 @@
     "go_mod_or_dep": ["mod", "dep"],
     "use_docker": "y",
     "use_mux": "y",
+    "use_postgresql": "y",
     "use_git": "y",
     "use_logrus_logging": "y",
     "use_viper_config": "y",
